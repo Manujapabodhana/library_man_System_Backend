@@ -51,25 +51,41 @@ backend/
 1. **Clone the repository**
 
    ```bash
-   cd d:\intern\library_man_System_Backend\backend
+   cd d:\intern\library_man_System_Backend
    ```
 
 2. **Restore dependencies**
 
    ```bash
+   cd backend
    dotnet restore
    ```
 
 3. **Update database connection string**
 
-   Edit `appsettings.json` or `appsettings.Development.json` to configure your database connection string.
+   Edit `backend/appsettings.json` or `backend/appsettings.Development.json` to configure your database connection string.
 
 4. **Apply database migrations**
+
    ```bash
    dotnet ef database update
    ```
 
+   **Note**: All commands must be run from the `backend` directory.
+
 ## Running the Application
+
+**Important**: Navigate to the backend directory first:
+
+```bash
+cd backend
+```
+
+Or run from the root directory using the `--project` flag:
+
+```bash
+dotnet run --project backend/backend.csproj
+```
 
 ### Development Mode
 
@@ -94,7 +110,7 @@ The API will be available at:
 - HTTPS: `https://localhost:5001`
 - HTTP: `http://localhost:5000`
 
-(Check `Properties/launchSettings.json` for exact URLs)
+(Check `backend/Properties/launchSettings.json` for exact URLs)
 
 ## API Endpoints
 
@@ -112,6 +128,8 @@ The API will be available at:
 - `DELETE /api/books/{id}` - Delete a book (authenticated)
 
 ## Database Migrations
+
+**Note**: Run these commands from the `backend` directory.
 
 ### Create a new migration
 
@@ -133,13 +151,15 @@ dotnet ef migrations remove
 
 ## Configuration
 
-Key configuration settings in `appsettings.json`:
+Key configuration settings in `backend/appsettings.json`:
 
 - **ConnectionStrings**: Database connection configuration
 - **JWT Settings**: Token generation and validation settings
 - **Logging**: Application logging configuration
 
 ## Development
+
+**Note**: Run these commands from the `backend` directory or use `--project backend/backend.csproj`.
 
 ### Build the project
 
